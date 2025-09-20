@@ -15,6 +15,17 @@ services:
     networks:
       - app-network
 
+  redis:
+    image: redis:7.2
+    container_name: redis-sep490
+    restart: always
+    ports:
+      - "6379:6379"
+    env_file:
+      - .env
+    networks:
+      - app-network
+
   app:
     build: .
     container_name: be
